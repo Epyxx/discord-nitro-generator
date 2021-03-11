@@ -1,0 +1,29 @@
+{
+    "name": "discord-nitro-genrator",
+    "version": "1.0",
+    "description": "Epyxx' Discord Nitro Generator. Fragen bitte per Discord: Epyx#4545",
+    "main": "app.js",
+    "scripts": {
+        "start": "node app.js"
+    },
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "console-menu": "",
+        "figlet": "",
+        "line-reader": "",
+        "node-fetch": "",
+        "request": "",
+        "colors": "",
+        "requests": "",
+        "terminal-kit": ""
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/epyxx/discord-nitro-generator.git"
+    },
+    "bugs": {
+        "url": "https://github.com/epyxx/discord-nitro-generator/issues"
+    },
+    "homepage": "https://github.com/epyxx/discord-nitro-generator#readme"
+}
