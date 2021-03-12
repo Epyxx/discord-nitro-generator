@@ -9,7 +9,7 @@ var term = require("terminal-kit").terminal;
 var proxyLine = 0;
 var proxyUrl = "";
 var working = [];
-var version = "v1.0"
+var version = "v1.1"
 var toMatch;
 // highest rate possible before the stress errors will start to occur
 const triesPerSecond = 1;
@@ -70,7 +70,7 @@ checkCode = function(code) {
             return;
         }
         try {
-            if (body.code == 200) {
+            if (resp.statusCode == 200) {
                 term.brightGreen(`Dieser Code sollte funktionieren, außer du siehst eine Fehlermeldung! https://discord.gift/${code}\n`);
                 console.log(JSON.stringify(body, null, 4));
                 working.push(`https://discord.gift/${code}`);
@@ -80,7 +80,7 @@ checkCode = function(code) {
                 } else {
                     //console.log("test")
                 }
-            } else if (body.code == 429) {
+            } else if (resp.statusCode == 429) {
                 updateLine();
                 term.brightYellow("Proxy Limit erreicht! Wechsle...\n");
 
@@ -102,7 +102,7 @@ checkCodeOffline = function(code) {
             return;
         }
         try {
-            if (body.code == 200) {
+            if (res.statusCode == 200) {
                 term.brightGreen(`Dieser Code sollte funktionieren, außer du siehst eine Fehlermeldung! https://discord.gift/${code}\n`);
                 console.log(JSON.stringify(body, null, 4));
                 working.push(`https://discord.gift/${code}`);
@@ -112,7 +112,7 @@ checkCodeOffline = function(code) {
                 } else {
                     //console.log("test")
                 }
-            } else if (body.code == 429) {
+            } else if (res.statusCode == 429) {
                 term.brightYellow("Proxy Limit erreicht!");
             } else {
                 term.brightRed(`discord.com/gifts/${code} ist ein ungültiger Code!\n`);
